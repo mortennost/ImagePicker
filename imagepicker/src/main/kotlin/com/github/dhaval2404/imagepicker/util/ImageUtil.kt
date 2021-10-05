@@ -143,6 +143,8 @@ object ImageUtil {
         bmp.recycle()
 
         val matrix = Matrix()
+        // Fix mirrored
+        matrix.preScale(-1f, 1f)
         scaledBitmap = Bitmap.createBitmap(
             scaledBitmap, 0, 0, scaledBitmap.width,
             scaledBitmap.height, matrix, true
