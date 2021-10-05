@@ -132,9 +132,8 @@ object ImageUtil {
         val middleY = actualHeight / 2.0f
 
         val scaleMatrix = Matrix()
-        // Fix mirrored
-        scaleMatrix.preScale(-1f, 1f)
         scaleMatrix.setScale(ratioX, ratioY, middleX, middleY)
+        scaleMatrix.postScale(-1f, 1f)
 
         val canvas = Canvas(scaledBitmap!!)
         canvas.setMatrix(scaleMatrix)
