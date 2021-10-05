@@ -132,6 +132,8 @@ object ImageUtil {
         val middleY = actualHeight / 2.0f
 
         val scaleMatrix = Matrix()
+        // Fix mirrored
+        scaleMatrix.preScale(-1f, 1f)
         scaleMatrix.setScale(ratioX, ratioY, middleX, middleY)
 
         val canvas = Canvas(scaledBitmap!!)
@@ -143,8 +145,6 @@ object ImageUtil {
         bmp.recycle()
 
         val matrix = Matrix()
-        // Fix mirrored
-        matrix.preScale(-1f, 1f)
         scaledBitmap = Bitmap.createBitmap(
             scaledBitmap, 0, 0, scaledBitmap.width,
             scaledBitmap.height, matrix, true
